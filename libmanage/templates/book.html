@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+{% if flag1 %}
+<p><h1>Nothing to display</h1>
+Add a book? <a href="http://localhost:8000/libmanage/badd/"><button type="submit" class="btn btn-primary btn-md">Add</button></a>
+</p>
+{% else %}
+<br><a href="http://localhost:8000/libmanage/badd/"><button type="submit" class="btn btn-primary btn-md">Add</button></a><br><br>
+<table class="table table-hover" width="1000" height="100">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Book id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">YOP</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+
+    </tr>
+  </thead>
+    {% for i in l1 %}
+  <tbody>
+    <tr>
+      <th scope="row">{{i.0}}</th>
+      <td>{{i.1}}</td>
+      <td>{{i.2}}</td>
+      <td>{{i.3}}</td>
+        <td>{{i.4}}<a href="http://localhost:8000/libmanage/borroweradd/{{i.0}}/"><button type="submit" class="btn btn-primary btn-md">Add</button></a>
+<!--    <select class="status">-->
+<!--<option value="Available">Available</option>-->
+<!--<option data-url="http://localhost:8000/libmanage/borroweradd/{{i.0}}/">Issued</option>-->
+<!--</select>-->
+        </td>
+          <td>
+<!--              <input type="text" hidden name="id" value="{{i.0}}">-->
+              <input type="text" hidden name="bname" value="{{i.1}}">
+              <input type="text" hidden name="author" value="{{i.2}}">
+              <input type="text" hidden name="yop" value="{{i.3}}">
+              <a href="http://localhost:8000/libmanage/bupdate/{{i.0}}/"><button type="submit" class="btn btn-primary btn-md">Update</button></a>
+          </td>
+      <td>
+              <a href="http://localhost:8000/libmanage/bdelete/{{i.0}}/"><button type="submit" class="btn btn-primary btn-md">Delete</button></a>
+        </td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

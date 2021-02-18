@@ -1,0 +1,12 @@
+<form method="POST" action="/libmanage/bupdate/{{book_id}}/">
+    {% csrf_token %}
+<!--    <input type="text" hidden name="bid" id="bid" value="{{book_id}}">-->
+    <input type="text" name="bname" id="bname" placeholder="Enter book name">
+    <input type="text" name="author" id="author" placeholder="Enter author name">
+    <input type="text" name="yop" id="yop" placeholder="Enter yop">
+    <select name="status" id="status">
+        <option value="Available" selected="Selected">Available</option>
+        <option value="Issued">Issued</option>
+    </select>
+    <input type="submit">
+</form>

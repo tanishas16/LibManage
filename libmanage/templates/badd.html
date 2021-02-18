@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<form method="POST" action="/libmanage/badd/">
+    {% csrf_token %}
+    <input type="text" name="bname" id="bname" placeholder="Enter name">
+    <input type="text" name="author" id="author" placeholder="Enter author">
+    <input type="text" name="yop" id="yop" placeholder="Enter yop">
+    <select name="status" id="status">
+        <option value="Available" selected="Selected">Available</option>
+        <option value="Issued">Issued</option>
+    </select>
+    <button type="submit" class="btn btn-primary btn-md">Add</button>
+</form>
+{% endblock %}
